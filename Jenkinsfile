@@ -1,5 +1,5 @@
 pipeline {
- agent any
+agent any
 stages {
     
     stage('build') {
@@ -9,7 +9,7 @@ stages {
 }
     stage ('Test'){
         steps {
-            sh 'su sudo apt install python'
+            sh 'sudo apt install python'
             sh 'python *.py'
         }
     }
