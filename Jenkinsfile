@@ -9,7 +9,7 @@ stages {
 }
     stage ('Test'){
         steps {
-            sh 'python3 *.py'
+            sh 'python *.py'
         }
     }
 }
