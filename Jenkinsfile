@@ -9,7 +9,7 @@ stages {
 }
     stage ('Test'){
         steps {
-            sh 'apt install python'
+            sh 'su sudo apt install python'
             sh 'python *.py'
         }
     }
