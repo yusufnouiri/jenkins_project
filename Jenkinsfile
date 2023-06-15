@@ -1,17 +1,28 @@
 pipeline {
-agent any
-stages {
-    
-    stage('build') {
-  steps {
-    sh 'echo building stage'
-  }
-}
-    stage ('Test'){
-        steps {
-            sh 'sudo apt install python'
-            sh 'python *.py'
+    agent {
+        docker {
+            // Specify the Docker image to use
+            image 'python:latest'
+            // Specify any additional Docker configuration options, if needed
+            // ...
         }
     }
-}
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo building stage'
+            }
+        }
+        
+        stage ('Test') {
+            steps {
+                // Install any required dependencies
+                sh 'apt update && apt install -y python'
+                
+                // Execute your tests
+                sh 'python *.py'
+            }
+        }
+    }
 }
