@@ -10,11 +10,16 @@ pipeline {
         
         stage ('Test') {
             steps {
-                // Install any required dependencies
-                sh 'apt update && apt install -y python'
-                
-                // Execute your tests
-                sh 'python *.py'
+                script {
+                    // Run the Docker container
+                    docker.image('python:latest').inside {
+                        // Install any required dependencies
+                        sh 'apt update && apt install -y python'
+                        
+                        // Execute your tests inside the Docker container
+                        sh 'python *.py'
+                    }
+                }
             }
         }
     }
