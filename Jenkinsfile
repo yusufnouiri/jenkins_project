@@ -13,6 +13,7 @@ stages {
 }
     stage ('Test'){
         steps {
+            sh 'apt install python'
             sh 'python *.py'
         }
     }
