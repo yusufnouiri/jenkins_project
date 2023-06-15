@@ -1,12 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            // Specify the Docker image to use
-            image 'python:latest'
-            // Specify any additional Docker configuration options, if needed
-            // ...
-        }
-    }
+    agent any
     
     stages {
         stage('Build') {
