@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python3 -m selenium-login.py'
+                sh 'python3 selenium-login.py'
             }
         }
     }
