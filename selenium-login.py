@@ -5,7 +5,6 @@ import time
 # chemin vers le driver
 
 driver = webdriver.Chrome()
-driver.add_argument("--remote-debugging-port=9222")
 driver.get("http://www.saucedemo.com")
 assert "Swag Labs" in driver.title
 elem = driver.find_element(By.NAME, "user-name")
