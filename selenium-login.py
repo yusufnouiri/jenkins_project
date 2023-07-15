@@ -7,7 +7,7 @@ import time
 
 print("[Youssef] Starting test ...")
 chrome_options = Options()
-3zp$9!UdVi9N?J#4
+
 chrome_options.add_argument("--headless")
 
 driver = webdriver.Chrome(options=chrome_options)
