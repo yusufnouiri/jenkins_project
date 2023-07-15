@@ -5,8 +5,9 @@ from selenium.webdriver.common.by import By
 import time
 # chemin vers le driver
 
+print("[Youssef] Starting test ...")
 chrome_options = Options()
-
+3zp$9!UdVi9N?J#4
 chrome_options.add_argument("--headless")
 
 driver = webdriver.Chrome(options=chrome_options)
@@ -24,5 +25,8 @@ login_button = driver.find_element("css selector","#login-button")
 login_button.click()
 time.sleep(5)
 assert "Login" not in driver.page_source
+
 driver.close()
 
+
+print("[Youssef] Finishing test ...")
