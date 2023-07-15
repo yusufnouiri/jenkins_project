@@ -1,7 +1,9 @@
 version: '2'
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins
+    build:
+      dockerfile: Dockerfile
     labels:
       kompose.service.type: nodeport
     ports:
