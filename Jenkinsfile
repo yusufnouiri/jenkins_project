@@ -1,14 +1,20 @@
 pipeline {
     agent any
-    stages{
-        stage('version') {
-            steps{
-                sh 'pip --version'
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yusufnouiri/jenkins_project.git']]])
+            }
+        }
+        stage('Build') {
+            steps {
+                git branch: 'main', url: 'https://github.com/yusufnouiri/jenkins_project.git'
             }
         }
         stage('Test') {
             steps {
-                sh 'python3 selenium-login.py'
+                sh 'python3 -m selenium-login.py'
             }
         }
     }
