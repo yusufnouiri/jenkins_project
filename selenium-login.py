@@ -1,10 +1,16 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 # chemin vers le driver
 
-driver = webdriver.Chrome()
+chrome_options = Options()
+
+chrome_options.add_argument("--headless")
+
+driver = webdriver.Chrome(options=chrome_options)
+
 driver.get("http://www.saucedemo.com")
 assert "Swag Labs" in driver.title
 elem = driver.find_element(By.NAME, "user-name")
